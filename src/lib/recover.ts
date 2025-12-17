@@ -59,9 +59,10 @@ export function recoverFromParts(
   if (sErr) return { ok: false, error: `s 오류: ${sErr}` }
 
   const normalizedDigest = normalizeHex(removeWhitespace ? stripWhitespace(digest) : digest)
-  const signature: { r: string; s: string; v?: number; yParity?: number } = {
+  const signature: { r: string; s: string; v: number } = {
     r: normalize0x(stripWhitespace(r)),
     s: normalize0x(stripWhitespace(s)),
+    v: 27,
   }
 
   if (parityMode === 'v') {
@@ -69,13 +70,13 @@ export function recoverFromParts(
     if (![0, 1, 27, 28].includes(vNum) || Number.isNaN(vNum)) {
       return { ok: false, error: 'v는 0/1 또는 27/28이어야 합니다.' }
     }
-    signature.v = vNum
+    signature.v = vNum === 0 || vNum === 1 ? vNum + 27 : vNum
   } else {
     const yNum = Number(parityValue)
     if (![0, 1].includes(yNum) || Number.isNaN(yNum)) {
       return { ok: false, error: 'yParity는 0 또는 1이어야 합니다.' }
     }
-    signature.yParity = yNum as 0 | 1
+    signature.v = yNum === 0 ? 27 : 28
   }
 
   try {

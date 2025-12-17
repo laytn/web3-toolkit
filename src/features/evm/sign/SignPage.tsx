@@ -5,7 +5,12 @@ import InputField from '../../../components/InputField'
 import TextareaField from '../../../components/TextareaField'
 import ToolCard from '../../../components/ToolCard'
 import { computeEip191Hash, verifyEip191Signature, type Eip191Mode } from './lib/eip191'
-import { buildTypedData, computeTypedHash, verifyTypedSignature } from './lib/typed'
+import {
+  buildTypedData,
+  computeTypedHash,
+  verifyTypedSignature,
+  type TypedDataInput,
+} from './lib/typed'
 import styles from './SignPage.module.css'
 
 type Tab = 'eip191' | 'eip712'
@@ -35,7 +40,7 @@ export default function SignPage() {
   const [typedDigest, setTypedDigest] = useState('')
   const [typedPrimary, setTypedPrimary] = useState('')
   const [typedError, setTypedError] = useState<string | null>(null)
-  const [typedData, setTypedData] = useState<ReturnType<typeof buildTypedData>['data'] | null>(null)
+  const [typedData, setTypedData] = useState<TypedDataInput | null>(null)
   const [sig712, setSig712] = useState('')
   const [expected712, setExpected712] = useState('')
   const [verify712, setVerify712] = useState<{ address?: string; matches?: boolean } | null>(null)
@@ -138,7 +143,7 @@ export default function SignPage() {
 
   const handleVerify712 = (
     signature: string,
-    data: NonNullable<typeof typedData> | null = typedData,
+    data: TypedDataInput | null = typedData,
     expected = expected712
   ) => {
     setSig712(signature)

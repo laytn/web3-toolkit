@@ -3,6 +3,7 @@ import { ParamType, getAddress, hexlify, isAddress } from 'ethers'
 export function toDisplayValue(value: unknown, param: ParamType): unknown {
   if (param.baseType === 'array') {
     const child = param.arrayChildren
+    if (!child) return value
     if (Array.isArray(value)) {
       return value.map((v) => toDisplayValue(v, child))
     }
@@ -34,7 +35,6 @@ export function toDisplayValue(value: unknown, param: ParamType): unknown {
   if ((param.baseType === 'int' || param.baseType === 'uint') && value != null) {
     try {
       // BigInt or BigNumber-like
-      // @ts-expect-error
       if (typeof value === 'bigint') return value.toString()
       if (typeof value === 'object' && 'toString' in (value as object)) {
         return (value as { toString: () => string }).toString()

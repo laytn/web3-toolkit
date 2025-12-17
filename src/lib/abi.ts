@@ -74,6 +74,9 @@ export function parseParam(param: ParamType, raw: string): unknown {
 
   // Arrays
   if (param.baseType === 'array') {
+    if (!param.arrayChildren) {
+      throw new Error('배열 타입의 하위 타입을 해석할 수 없습니다.')
+    }
     const parsed = parseJsonValue(trimmed)
     if (!Array.isArray(parsed)) {
       throw new Error('배열 타입은 JSON 배열로 입력하세요. 예: [1,2,3]')
