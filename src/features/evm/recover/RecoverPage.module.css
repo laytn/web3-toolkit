@@ -1,0 +1,103 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.notice {
+  background: #f8f4ff;
+  border: 1px solid #e0d7ff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #4b3f72;
+  font-weight: 600;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.modeRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.radio {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-alt);
+}
+
+.label {
+  margin: 0;
+  font-weight: 700;
+  color: var(--muted-strong);
+}
+
+.helper {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.splitGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.parityBox {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--surface-alt);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.parityToggle {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.radioInline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.outputRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.code {
+  word-break: break-all;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  margin: 6px 0 0;
+}
+
+@media (max-width: 640px) {
+  .row,
+  .outputRow {
+    grid-template-columns: 1fr;
+  }
+}

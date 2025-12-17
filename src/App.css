@@ -1,0 +1,40 @@
+:root {
+  --text: #0f172a;
+  --muted: #5f6b7c;
+  --muted-strong: #1f2937;
+  --border: #e5e7eb;
+  --surface: #ffffff;
+  --surface-alt: #f7f8fb;
+  --accent: #1f6feb;
+}
+
+#root {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer {
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+  padding: 16px 0 24px;
+}
+
+@media (max-width: 720px) {
+  #root {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,50 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.result {
+  background: #f1f7ff;
+  border: 1px solid #d6e6ff;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.status {
+  margin: 0 0 8px;
+  color: #0b56d0;
+  font-weight: 700;
+}
+
+.checksumRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.label {
+  margin: 0;
+  color: var(--muted-strong);
+  font-weight: 600;
+}
+
+.code {
+  margin: 4px 0 0;
+  font-family: ui-monospace, SFMono-Regular, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  word-break: break-all;
+}
+
+.helper {
+  margin: 8px 0 0;
+  color: var(--muted);
+}

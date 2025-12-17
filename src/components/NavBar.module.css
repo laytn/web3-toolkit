@@ -1,0 +1,75 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.95), rgba(248, 250, 252, 0.7));
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1f6feb, #5b8def);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.brandText {
+  background: linear-gradient(120deg, #0f172a, #1f6feb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.02em;
+}
+
+.familyNav {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.familyLink,
+.activeFamily {
+  padding: 8px 12px;
+  text-decoration: none;
+  color: var(--muted-strong);
+  font-weight: 700;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.activeFamily {
+  background: #eaf2ff;
+  color: #0b56d0;
+}
+
+@media (max-width: 720px) {
+  .topRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
